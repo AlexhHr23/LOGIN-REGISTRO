@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,26 @@
         <div class="jumbotron">
             <h1>Bienvenidos a mi aplicacion</h1>
         </div>
+        <div id="salir">
+            <button class="btn btn-outline-danger" id="btnSalir">salir</button>
+        </div>
     </div>
+    <script>
+
+        window.addEventListener('load' , function() {
+            if(localStorage.getItem('sesion') == null) {
+                window.location.replace('./index.html', '_self');
+            }
+        })
+        
+
+        const boton = document.getElementById('btnSalir');
+
+        boton.addEventListener('clock', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('sesion');
+            window.open('./index', '_self');
+        });
+    </script>
 </body>
 </html>
